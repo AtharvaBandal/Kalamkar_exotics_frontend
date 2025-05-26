@@ -6,8 +6,8 @@ export function DialogContent({ children, className = '', ...props }) {
     return (_jsx("div", { className: `dialog-inner-content ${className}`, ...props, children: children }));
 }
 export function DialogHeader({ children, className = '', ...props }) {
-    return (_jsx("div", { className: `dialog-header ${className}`, ...props, children: children }));
+    return (_jsx("div", { className: `dialog-header text-center mb-4 ${className}`, ...props, children: children }));
 }
 export function DialogTitle({ children, className = '', ...props }) {
-    return (_jsx("h2", { className: `dialog-title ${className}`, ...props, children: children }));
+    return (_jsx("h2", { className: `dialog-title text-xl font-semibold text-gray-800 ${className}`, ...props, children: children }));
 }
