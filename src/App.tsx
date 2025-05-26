@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 import Layout from './components/Layout.jsx';
 import VegetableOrderSystem from '../components/VegetableOrderSystem.jsx';
-import OrderHistory from '../ /OrderHistory.jsx';
 import Login from './components/Login.jsx';
 import Profile from './components/Profile.jsx';
 import './index.css';
@@ -17,7 +16,6 @@ function App() {
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('orderSuccess')) {
-      setCurrentView('orderHistory');
       window.history.replaceState(null, '', window.location.pathname);
     }
   }, []);
@@ -42,7 +40,6 @@ function App() {
             {currentView === 'orders' && (
               <VegetableOrderSystem onViewChange={handleViewChange} />
             )}
-            {currentView === 'orderHistory' && <OrderHistory />}
             {currentView === 'profile' && <Profile />}
           </div>
         </Layout>
