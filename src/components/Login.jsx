@@ -74,7 +74,7 @@ const AuthPage = ({ onLogin }) => {
         {/* Header */}
         <div className="flex items-center mb-6 space-x-4">
           <img
-            src="../../public/Kalamkar-Exotics-Logo-3.png"
+            src="/Kalamkar-Exotics-Logo-3.png"
             alt="Kalamkar Exotics Logo"
             className="h-16 w-18"
           />
