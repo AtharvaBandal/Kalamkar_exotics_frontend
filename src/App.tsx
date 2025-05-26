@@ -28,7 +28,7 @@ function App() {
     setIsAuthenticated(false);
   };
 
-  const handleViewChange = (view) => {
+  const handleViewChange = (view:string) => {
     setCurrentView(view);
   };
 
