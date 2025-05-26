@@ -3,12 +3,10 @@ import React, { useState } from 'react';
 const AuthPage = ({ onLogin }) => {
   const [showLogin, setShowLogin] = useState(true);
 
-  // Login state
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loadingLogin, setLoadingLogin] = useState(false);
 
-  // Signup state
   const [signupUsername, setSignupUsername] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
   const [signupAddress, setSignupAddress] = useState('');
@@ -25,8 +23,14 @@ const AuthPage = ({ onLogin }) => {
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Login failed');
+
       localStorage.setItem('token', data.token);
-      onLogin(data.user);
+      localStorage.setItem('isAuthenticated', 'true');
+
+      // Delay onLogin so App can detect updated localStorage
+      setTimeout(() => {
+        onLogin(data.user);
+      }, 100);
     } catch (err) {
       alert(err.message);
     } finally {
@@ -49,8 +53,14 @@ const AuthPage = ({ onLogin }) => {
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Registration failed');
+
       localStorage.setItem('token', data.token);
-      onLogin(data.user);
+      localStorage.setItem('isAuthenticated', 'true');
+
+      // Delay onLogin so App can detect updated localStorage
+      setTimeout(() => {
+        onLogin(data.user);
+      }, 100);
     } catch (err) {
       alert(err.message);
     } finally {
@@ -61,23 +71,26 @@ const AuthPage = ({ onLogin }) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-50 p-4">
       <div className="bg-white p-8 shadow-lg rounded-lg w-full max-w-md">
-        {/* Logo and Title */}
+        {/* Header */}
         <div className="flex items-center mb-6 space-x-4">
           <img
-            src="../src/Kalamkar-Exotics-Logo-3.png"
+            src="../../public/Kalamkar-Exotics-Logo-3.png"
             alt="Kalamkar Exotics Logo"
             className="h-16 w-18"
           />
           <div>
-            <h1 className="text-2xl font-bold text-green-600">Kalamkar Exotics Pvt Ltd</h1>
-            <p className="text-gray-600">Random Tagline!!!</p>
+            <h1 className="text-3xl font-extrabold text-green-700 tracking-wide">
+              Kalamkar Exotics
+            </h1>
+            <p className="text-gray-500 italic text-sm mt-1">
+              Cultivating Excellence in Exotic Produce
+            </p>
           </div>
         </div>
 
-        {/* Toggle between Login and Signup */}
+        {/* Login / Signup Forms */}
         {showLogin ? (
           <>
-            
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
                 <label className="block text-gray-700">Username</label>
@@ -120,7 +133,6 @@ const AuthPage = ({ onLogin }) => {
           </>
         ) : (
           <>
-            
             <form onSubmit={handleSignup} className="space-y-4">
               <div>
                 <label className="block text-gray-700">Username</label>
@@ -153,7 +165,7 @@ const AuthPage = ({ onLogin }) => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
+                className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition"
                 disabled={loadingSignup}
               >
                 {loadingSignup ? 'Registering...' : 'Sign Up'}
@@ -163,10 +175,9 @@ const AuthPage = ({ onLogin }) => {
               Already have an account?{' '}
               <button
                 type="button"
-                className="text-blue-600 hover:underline"
+                className="text-green-600 hover:underline"
                 onClick={() => setShowLogin(true)}
               >
-                
                 Log in
               </button>
             </p>

@@ -8,8 +8,14 @@ interface DialogProps {
 
 export function Dialog({ open, onOpenChange, children }: DialogProps) {
   return open ? (
-    <div className="dialog-backdrop" onClick={() => onOpenChange(false)}>
-      <div className="dialog-content" onClick={(e) => e.stopPropagation()}>
+    <div
+      className="dialog-backdrop"
+      onClick={() => onOpenChange(false)}
+    >
+      <div
+        className="dialog-content"
+        onClick={(e) => e.stopPropagation()}
+      >
         {children}
       </div>
     </div>
@@ -23,7 +29,10 @@ interface CommonProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function DialogContent({ children, className = '', ...props }: CommonProps) {
   return (
-    <div className={`dialog-inner-content ${className}`} {...props}>
+    <div
+      className={`dialog-inner-content ${className}`}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -31,7 +40,10 @@ export function DialogContent({ children, className = '', ...props }: CommonProp
 
 export function DialogHeader({ children, className = '', ...props }: CommonProps) {
   return (
-    <div className={`dialog-header ${className}`} {...props}>
+    <div
+      className={`dialog-header text-center mb-4 ${className}`}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -39,7 +51,10 @@ export function DialogHeader({ children, className = '', ...props }: CommonProps
 
 export function DialogTitle({ children, className = '', ...props }: CommonProps) {
   return (
-    <h2 className={`dialog-title ${className}`} {...props}>
+    <h2
+      className={`dialog-title text-xl font-semibold text-gray-800 ${className}`}
+      {...props}
+    >
       {children}
     </h2>
   );

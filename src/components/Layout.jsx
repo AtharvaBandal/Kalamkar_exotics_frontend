@@ -16,12 +16,12 @@ const Layout = ({ children, onLogout, onViewChange, currentView }) => {
             </div>
 
             <div className="flex items-center space-x-4">
-              <NavLink 
+              {/* <NavLink 
                 icon={<Home size={25} />} 
                 text="Dashboard" 
                 active={currentView === 'orders'}
                 onClick={() => onViewChange('orders')}
-              />
+              /> */}
               <NavLink 
                 icon={<Leaf size={25} />} 
                 text="Orders" 
