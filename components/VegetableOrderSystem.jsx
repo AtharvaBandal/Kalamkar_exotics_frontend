@@ -22,36 +22,36 @@ import {
 
 const VegetableOrderSystem = () => {
   const allVegetables = useMemo(() => [
-  { id: 1, name: 'Iceberg', image: 'https://via.placeholder.com/48', price: 120 },
-  { id: 2, name: 'Capsicum Red', image: 'https://via.placeholder.com/48', price: 100 },
-  { id: 3, name: 'Zucchini Green', image: 'https://via.placeholder.com/48', price: 80 },
-  { id: 4, name: 'Cherry Tomato', image: 'https://via.placeholder.com/48', price: 90 },
-  { id: 5, name: 'Lolo Rosso', image: 'https://via.placeholder.com/48', price: 130 },
-  { id: 6, name: 'Chinese Pakchoy', image: 'https://via.placeholder.com/48', price: 75 },
-  { id: 7, name: 'Zucchini Yellow', image: 'https://via.placeholder.com/48', price: 90 },
-  { id: 8, name: 'Imported Avocado', image: 'https://via.placeholder.com/48', price: 250 },
-  { id: 9, name: 'Indian Avocado', image: 'https://via.placeholder.com/48', price: 180 },
-  { id: 10, name: 'Chinese Cabbage', image: 'https://via.placeholder.com/48', price: 60 },
-  { id: 11, name: 'Simpson/Green Lettuce', image: 'https://via.placeholder.com/48', price: 70 },
-  { id: 12, name: 'Capsicum Yellow', image: 'https://via.placeholder.com/48', price: 95 },
-  { id: 13, name: 'Endive', image: 'https://via.placeholder.com/48', price: 110 },
-  { id: 14, name: 'Leeks', image: 'https://via.placeholder.com/48', price: 90 },
-  { id: 15, name: 'Fennel', image: 'https://via.placeholder.com/48', price: 85 },
-  { id: 16, name: 'Garlic Chives', image: 'https://via.placeholder.com/48', price: 60 },
-  { id: 17, name: 'Onion Chives', image: 'https://via.placeholder.com/48', price: 60 },
-  { id: 18, name: 'Lemon Grass', image: 'https://via.placeholder.com/48', price: 50 },
-  { id: 19, name: 'Lotus Stem', image: 'https://via.placeholder.com/48', price: 100 },
-  { id: 20, name: 'Baby Corn', image: 'https://via.placeholder.com/48', price: 90 },
-  { id: 21, name: 'Beans Sprout', image: 'https://via.placeholder.com/48', price: 60 },
-  { id: 22, name: 'Celery', image: 'https://via.placeholder.com/48', price: 70 },
-  { id: 23, name: 'Curled Parsley', image: 'https://via.placeholder.com/48', price: 55 },
-  { id: 24, name: 'Flat Parsley', image: 'https://via.placeholder.com/48', price: 55 },
-  { id: 25, name: 'Romainne Lettuce', image: 'https://via.placeholder.com/48', price: 85 },
-  { id: 26, name: 'Roquette Aragulla', image: 'https://via.placeholder.com/48', price: 100 },
-  { id: 27, name: 'Edible Flowers', image: 'https://via.placeholder.com/48', price: 150 },
-  { id: 28, name: 'Micro Greens', image: 'https://via.placeholder.com/48', price: 140 },
-  { id: 29, name: 'Asparagus', image: 'https://via.placeholder.com/48', price: 200 },
-  { id: 30, name: 'Rosemerry', image: 'https://via.placeholder.com/48', price: 120 },
+ { id: 1, name: 'Iceberg', price: 120 },
+  { id: 2, name: 'Capsicum Red', price: 100 },
+  { id: 3, name: 'Zucchini Green', price: 80 },
+  { id: 4, name: 'Cherry Tomato', price: 90 },
+  { id: 5, name: 'Lolo Rosso', price: 130 },
+  { id: 6, name: 'Chinese Pakchoy', price: 75 },
+  { id: 7, name: 'Zucchini Yellow', price: 90 },
+  { id: 8, name: 'Imported Avocado', price: 250 },
+  { id: 9, name: 'Indian Avocado', price: 180 },
+  { id: 10, name: 'Chinese Cabbage', price: 60 },
+  { id: 11, name: 'Simpson/Green Lettuce', price: 70 },
+  { id: 12, name: 'Capsicum Yellow', price: 95 },
+  { id: 13, name: 'Endive', price: 110 },
+  { id: 14, name: 'Leeks', price: 90 },
+  { id: 15, name: 'Fennel', price: 85 },
+  { id: 16, name: 'Garlic Chives', price: 60 },
+  { id: 17, name: 'Onion Chives', price: 60 },
+  { id: 18, name: 'Lemon Grass', price: 50 },
+  { id: 19, name: 'Lotus Stem', price: 100 },
+  { id: 20, name: 'Baby Corn', price: 90 },
+  { id: 21, name: 'Beans Sprout', price: 60 },
+  { id: 22, name: 'Celery', price: 70 },
+  { id: 23, name: 'Curled Parsley', price: 55 },
+  { id: 24, name: 'Flat Parsley', price: 55 },
+  { id: 25, name: 'Romainne Lettuce', price: 85 },
+  { id: 26, name: 'Roquette Aragulla', price: 100 },
+  { id: 27, name: 'Edible Flowers', price: 150 },
+  { id: 28, name: 'Micro Greens', price: 140 },
+  { id: 29, name: 'Asparagus', price: 200 },
+  { id: 30, name: 'Rosemerry', price: 120 },
  ], []);
 
 const [orders, setOrders] = useState([]);
@@ -390,7 +390,6 @@ const handleSubmitOrder = async () => {
                           {order.items.map((item, idx) => (
                             <div key={item._id || idx} className="flex justify-between items-center">
                               <div className="flex items-center">
-                                <img src={item.image || '/placeholder.png'} alt={item.name} className="w-8 h-8 object-cover rounded-md mr-2" />
                                 <span>{item.name}</span>
                               </div>
                               <span>{item.quantity} {item.unit}</span>
